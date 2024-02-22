@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<list key="EGit.KnownHosts">
+		<item value="git.eclipse.org"/>
+		<item value="bitbucket.org"/>
+		<item value="github.com"/>
+	</list>
+	<list key="RepositorySelectionPage.UsedUris">
+		<item value="https://github.com/abss7401/Reservation.git"/>
+		<item value="https://github.com/jjolraman/izakaya_reservation.git"/>
+	</list>
+	<list key="CommitDialog.authorValues">
+		<item value="DESKTOP-4U7JET4\hh &lt;abss7401@naver.com&gt;"/>
+		<item value="hh &lt;hh@DESKTOP-4U7JET4&gt;"/>
+		<item value="Hwany &lt;abss7401@naver.com&gt;"/>
+	</list>
+	<list key="CommitDialog.committerValues">
+		<item value="DESKTOP-4U7JET4\hh &lt;abss7401@naver.com&gt;"/>
+		<item value="hh &lt;hh@DESKTOP-4U7JET4&gt;"/>
+		<item value="Hwany &lt;abss7401@naver.com&gt;"/>
+	</list>
+	<section name="org.eclipse.egit.ui.internal.staging.StagingView">
+		<item key="MAIN_SASH_FORM_ORIENTATION_VERTICAL" value="false"/>
+		<item key="HORIZONTAL_SASH_FORM_WEIGHT" value="500,500"/>
+		<item key="STAGING_SASH_FORM_WEIGHT" value="758,241"/>
+		<item key="sortItemState" value="false"/>
+	</section>
+	<section name="GitCommitMessageComponent">
+		<list key="C:\Users\hh\git\Reservation\.git">
+			<item value="empty"/>
+		</list>
+	</section>
+	<section name="org.eclipse.egit.ui.internal.dialogs.MergeTargetSelectionDialog.dialogBounds">
+		<item key="DIALOG_X_ORIGIN" value="182"/>
+		<item key="DIALOG_Y_ORIGIN" value="13"/>
+		<item key="DIALOG_WIDTH" value="613"/>
+		<item key="DIALOG_HEIGHT" value="760"/>
+		<item key="DIALOG_FONT_NAME" value="1|맑은 고딕|9.0|0|WINDOWS|1|-15|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕"/>
+	</section>
+</section>
