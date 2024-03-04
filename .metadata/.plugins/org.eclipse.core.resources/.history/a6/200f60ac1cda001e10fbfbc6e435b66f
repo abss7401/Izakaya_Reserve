@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>findByEmail</title>
+</head>
+<body>
+		<h2>情報を入力してください。</h2>
+	     <div class="form-group">
+	       <label for="name">メール</label>
+	       <input type="text" id="name" name="email">
+	     </div>
+	 	<button onclick="location.href='reserved/nonList'">検索する</button>
+</body>
+</html>

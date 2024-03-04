@@ -10,7 +10,7 @@
 <nav th:replace="~{navbar :: navbarFragment}"></nav>
 <table class="table">
 	<tr>
-		<th>名前</th>
+		<th>メール</th>
 		<th>人員</th>
 		<th>日数</th>
 		<th>時間</th>
@@ -28,7 +28,7 @@
 			<a th:href="@{|update/${reserve.id}|}">変更</a>
 		</td>
 		<td>
-			<a th:href="@{|delete/${reserve.id}|}">キャンセル</a>
+			<a th:href="@{|remove/${reserve.email}|}">キャンセル</a>
 		</td>
 	</tr>
 </table>

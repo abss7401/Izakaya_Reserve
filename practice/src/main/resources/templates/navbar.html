@@ -16,8 +16,8 @@
                                 <li><hr class="dropdown-divider" /></li>
                                 <li><a th:unless="${session.loginUser}" class="dropdown-item" href="/join">회원가입</a></li>
                                 <li><a th:if="${session.loginUser}"  href="/reserved/list" class="dropdown-item">예약조회</a></li>
-                                <li><hr class="dropdown-divider" /></li>
-                                <li><button onclick="showEmailModal()" class="dropdown-item">비회원 예약조회</button></li>			
+                                <li><hr class="dropdown-divider"/></li>
+                                <li><button th:unless="${session.loginUser}" onclick="location.href='/reserved/findEmail'" class="dropdown-item">비회원 예약조회</button></li>			
                             </ul>
                         </li>
                     </ul>
