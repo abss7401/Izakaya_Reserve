@@ -1,0 +1,29 @@
+<!-- 로그인이 필요할 때 표시할 모달 -->
+<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="loginModalLabel">로그인 필요</h5>
+        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action="join" method="post" id="loginForm">
+          <div class="form-group">
+            <label for="name">이름</label>
+            <input type="text" class="form-control" id="name" name="name" placeholder="이름 입력">
+          </div>
+          <div class="form-group">
+            <label for="phone">전화번호</label>
+            <input type="tel" class="form-control" id="tel" name="tel" placeholder="전화번호 입력">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" id="close" data-bs-dismiss="modal">닫기</button>
+        <button type="button" class="btn btn-primary" onclick="submitLogin()">예약하기</button>
+      </div>
+    </div>
+  </div>
+</div>

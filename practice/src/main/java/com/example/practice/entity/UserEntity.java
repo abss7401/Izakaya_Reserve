@@ -1,25 +1,18 @@
 package com.example.practice.entity;
 
-import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
-
+import com.example.practice.model.Member;
+import com.example.practice.model.Reserve;
 import com.example.practice.model.User;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.JoinTable;
-import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
-import jakarta.persistence.Temporal;
-import jakarta.persistence.TemporalType;
-import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -33,49 +26,48 @@ public class UserEntity {
 	@Column
 	private Long id;
 	@Column(unique = true)
-	private String username;
+	private String email;
 	@Column
 	private String password;
 	@Column
 	private String name;
 	@Column
-	private String email;
-	private LocalDate birth;
+	private String tel;
+	@Enumerated(EnumType.STRING)
+	private Member member;
 	
-	@OneToMany(mappedBy = "user")
+/*	@OneToMany(mappedBy = "user")
 	private List<PostEntity> posts = new ArrayList<>();
-	
+*/	
 	@Builder(toBuilder = true)
-	public UserEntity(Long id, String username, String password
-			, String name, String email, LocalDate birth) {
+	public UserEntity(Long id, String email, String password
+			, String name, String tel, Member member) {
 		this.id = id;
-		this.username = username;
+		this.email = email;
 		this.password = password;
 		this.name = name;
-		this.email = email;
-		this.birth = birth;
+		this.tel = tel;
+		this.member = member;
 	}
 	
 	public User toUser() {
 		User build = User.builder()
 				.id(id)
-				.username(username)
+				.email(email)
 				.password(password)
 				.name(name)
-				.email(email)
-				.birth(birth)
+				.tel(tel)
 				.build();
 		return build;
 	}
 	
-	public void update(Long id, String username, String password
-			, String name, String email, LocalDate birth) {
+	public void update(Long id, String email, String password
+			, String name, String tel) {
 		this.id = id;
-		this.username = username;
+		this.email = email;
 		this.password = password;
 		this.name = name;
-		this.email = email;
-		this.birth = birth;
+		this.tel = tel;
 	}
 
 }

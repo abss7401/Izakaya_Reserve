@@ -1,0 +1,31 @@
+package com.example.practice.model;
+
+import com.example.practice.entity.UserEntity;
+
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@NoArgsConstructor
+@Data
+public class NonUser {
+		private Long id;
+		private String email;
+		private String tel;
+		
+		public NonUserEntity toNonUserEntity() {
+			UserEntity build = UserEntity.builder()
+					.id(id)
+					.email(email)
+					.tel(tel)
+					.build();
+			return build;
+		}
+		
+		@Builder
+		public NonUser(Long id, String email, String tel) {
+			this.id = id;
+			this.email = email;
+			this.tel = tel;
+		}
+}

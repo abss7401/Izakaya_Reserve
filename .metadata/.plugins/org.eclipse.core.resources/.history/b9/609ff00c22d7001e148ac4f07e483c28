@@ -1,0 +1,93 @@
+$(document).ready(function(){
+
+        $('.datepicker').datepicker({
+            format: 'yyyy-mm-dd',
+            autoclose: true,
+            startDate: '0d',
+            todayBtn: "linked",
+            todayHighlight: true,
+        }).on('changeDate', function(e) {
+        // 날짜가 변경될 때 실행될 코드
+        var selectedDate = $(this).datepicker('getFormattedDate'); // 선택된 날짜 가져오기
+    //  console.log("선택된 날짜: " + selectedDate);
+        
+        // URL에 날짜 입력 코드
+         window.location.href = "/reserve?date=" + encodeURIComponent(selectedDate);
+        	});
+        
+        $('.cell').click(function(){
+            $('.cell').removeClass('select');
+            $(this).addClass('select');
+    	});
+        
+        });
+        
+        // 달력날짜 클릭시 활성화 효과
+        document.addEventListener('DOMContentLoaded', function() {
+        	const timeSlots = document.querySelectorAll('.time-slot'); // 모든 시간 슬롯을 선택
+        	const selectedTimeInput = document.getElementById('selectedTime'); // 숨겨진 입력 필드 선택
+    	
+        	timeSlots.forEach(function(slot) {
+				slot.addEventListener('click', function() {
+                	const timeValue = this.getAttribute('data-time'); // 클릭된 슬롯의 시간 값을 가져옴
+                	selectedTimeInput.value = timeValue; // 숨겨진 입력 필드에 시간 값을 설정
+                	console.log(timeValue);
+           			});
+        		});
+        
+        	// 비회원 팝업창 닫기		
+        	var closeButton = document.querySelector('.close');
+    			closeButton.onclick = function() {
+        			document.getElementById('loginModal').style.display = 'none';
+			};
+			
+			document.getElementById('loginForm').addEventListener('submit', function(event) {
+        event.preventDefault(); // 폼의 기본 제출 동작을 방지합니다.
+
+        var formData = new FormData(this); // 폼 데이터를 수집합니다.
+
+        // '/join' 엔드포인트로 폼 데이터를 전송합니다.
+        fetch('/join', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Join request failed');
+            }
+            return response.json(); // 여기서는 응답을 JSON으로 가정합니다.
+        })
+        .then(data => {
+            console.log('Join success:', data);
+            // '/join' 요청이 성공한 후, '/reserve' 엔드포인트로 동일한 폼 데이터를 전송합니다.
+            return fetch('/reserve', {
+                method: 'POST',
+                body: formData // 동일한 formData 객체를 재사용합니다.
+            });
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Reserve request failed');
+            }
+            return response.formData(); // 여기서는 응답을 JSON으로 가정합니다.
+        })
+        .then(data => {
+            console.log('Reserve success:', data);
+            // 성공적으로 처리된 후의 로직을 여기에 추가합니다.
+            // 예를 들어, 성공 메시지를 표시하거나 다른 페이지로 리다이렉트할 수 있습니다.
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+    });
+    			
+		});
+		
+			// 비회원 팝업창 열기
+			function showLoginModal() {
+				document.getElementById('loginModal').style.display = 'block';
+			}
+		
+		
+
+
