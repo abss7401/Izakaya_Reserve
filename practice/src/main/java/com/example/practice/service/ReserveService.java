@@ -114,7 +114,6 @@ public class ReserveService {
 	@Transactional
 	public void deleteReserves(String email) {
 		List<ReserveEntity> byEmail = reserveRepository.findByEmail(email);
-		
 		reserveRepository.deleteAll(byEmail);
 	}
 
